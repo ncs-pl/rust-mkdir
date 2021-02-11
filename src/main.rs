@@ -56,7 +56,7 @@ fn main() {
         let path: &Path = Path::new(dir);
         if !parents {
             if let Some(parent) = path.parent() {
-                if !parent.exists() {
+                if !parent.exists() || parent == Path::new("") {
                     eprintln!("cannot create directory '{}': No such file of directory", path.display());
                     continue;
                 }
